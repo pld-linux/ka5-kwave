@@ -1,14 +1,15 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.1
+%define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kwave
 Summary:	Sound editor
 Name:		ka5-%{kaname}
-Version:	18.12.1
+Version:	19.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	b2243f8bc3a58d3574b11b1bc03e5d60
+# Source0-md5:	096ad66ad5bf2bc6e2820221c232c951
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -20,22 +21,22 @@ BuildRequires:	cmake >= 2.8.12
 BuildRequires:	flac-devel
 BuildRequires:	gettext-devel
 BuildRequires:	id3lib-devel
-BuildRequires:	kf5-extra-cmake-modules >= 1.7.0
-BuildRequires:	kf5-karchive-devel >= 5.33.0
-BuildRequires:	kf5-kcompletion-devel >= 5.33.0
-BuildRequires:	kf5-kconfig-devel >= 5.33.0
-BuildRequires:	kf5-kconfigwidgets-devel >= 5.33.0
-BuildRequires:	kf5-kcoreaddons-devel >= 5.33.0
-BuildRequires:	kf5-kcrash-devel >= 5.33.0
-BuildRequires:	kf5-kdbusaddons-devel >= 5.33.0
-BuildRequires:	kf5-kdoctools-devel >= 5.33.0
-BuildRequires:	kf5-ki18n-devel >= 5.33.0
-BuildRequires:	kf5-kiconthemes-devel >= 5.33.0
-BuildRequires:	kf5-kio-devel >= 5.33.0
-BuildRequires:	kf5-kservice-devel >= 5.33.0
-BuildRequires:	kf5-ktextwidgets-devel >= 5.33.0
-BuildRequires:	kf5-kwidgetsaddons-devel >= 5.33.0
-BuildRequires:	kf5-kxmlgui-devel >= 5.33.0
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-karchive-devel >= %{kframever}
+BuildRequires:	kf5-kcompletion-devel >= %{kframever}
+BuildRequires:	kf5-kconfig-devel >= %{kframever}
+BuildRequires:	kf5-kconfigwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-kcrash-devel >= %{kframever}
+BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-kservice-devel >= %{kframever}
+BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
 BuildRequires:	ninja
 BuildRequires:	opus-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -55,6 +56,7 @@ install -d build
 cd build
 %cmake \
 	-G Ninja \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
@@ -74,10 +76,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwave
-%attr(755,root,root) %ghost %{_libdir}/libkwave.so.18
-%attr(755,root,root) %{_libdir}/libkwave.so.18.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkwavegui.so.18
-%attr(755,root,root) %{_libdir}/libkwavegui.so.18.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkwave.so.19
+%attr(755,root,root) %{_libdir}/libkwave.so.19.*.*
+%attr(755,root,root) %ghost %{_libdir}/libkwavegui.so.19
+%attr(755,root,root) %{_libdir}/libkwavegui.so.19.*.*
 %dir %{_libdir}/qt5/plugins/kwave
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_about.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_amplifyfree.so
