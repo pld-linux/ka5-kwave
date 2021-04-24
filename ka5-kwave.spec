@@ -1,15 +1,15 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kwave
 Summary:	Sound editor
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	c4deeaac3c995ea1553438b6509cca9d
+# Source0-md5:	e9f6a9b33bc1ad6c2e3a068a155507db
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -76,9 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwave
-%attr(755,root,root) %ghost %{_libdir}/libkwave.so.20
+%ghost %{_libdir}/libkwave.so.21
 %attr(755,root,root) %{_libdir}/libkwave.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libkwavegui.so.20
+%ghost %{_libdir}/libkwavegui.so.21
 %attr(755,root,root) %{_libdir}/libkwavegui.so.*.*.*
 %dir %{_libdir}/qt5/plugins/kwave
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_about.so
