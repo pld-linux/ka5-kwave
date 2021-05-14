@@ -11,6 +11,8 @@ Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	e9f6a9b33bc1ad6c2e3a068a155507db
 URL:		http://www.kde.org/
+BuildRequires:	ImageMagick
+BuildRequires:	ImageMagick-coder-svg
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -19,6 +21,7 @@ BuildRequires:	Qt5Network-devel >= 5.11.1
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	flac-devel
+BuildRequires:	flac-c++-devel
 BuildRequires:	gettext-devel
 BuildRequires:	id3lib-devel
 BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
