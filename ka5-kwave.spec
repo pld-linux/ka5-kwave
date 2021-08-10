@@ -51,6 +51,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Kwave is a sound editor built on the KDE Frameworks 5.
 
+%description -l pl.UTF-8
+Kwave to edytor dźwięku zbudowany na bazie KDE Frameworks 5.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
