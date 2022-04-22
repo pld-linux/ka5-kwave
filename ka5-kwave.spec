@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kwave
 Summary:	Sound editor
 Name:		ka5-%{kaname}
-Version:	21.12.3
+Version:	22.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	c62783b9f1227654961cef49a1798c9e
+# Source0-md5:	80a74f55a640f2dd79193e6fc8e9b2e6
 URL:		http://www.kde.org/
 BuildRequires:	ImageMagick
 BuildRequires:	ImageMagick-coder-svg
@@ -92,9 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwave
-%ghost %{_libdir}/libkwave.so.21
+%ghost %{_libdir}/libkwave.so.22
 %attr(755,root,root) %{_libdir}/libkwave.so.*.*.*
-%ghost %{_libdir}/libkwavegui.so.21
+%ghost %{_libdir}/libkwavegui.so.22
 %attr(755,root,root) %{_libdir}/libkwavegui.so.*.*.*
 %dir %{_libdir}/qt5/plugins/kwave
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_about.so
