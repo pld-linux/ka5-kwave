@@ -22,8 +22,10 @@ BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Multimedia-devel
 BuildRequires:	Qt5Network-devel >= 5.11.1
 BuildRequires:	Qt5Widgets-devel
+BuildRequires:	alsa-lib-devel
 BuildRequires:	audiofile-devel >= 0.3.0
 BuildRequires:	cmake >= 2.8.12
+BuildRequires:	fftw3-devel
 BuildRequires:	flac-devel
 BuildRequires:	flac-c++-devel
 BuildRequires:	gettext-devel
@@ -44,8 +46,11 @@ BuildRequires:	kf5-kservice-devel >= %{kframever}
 BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	libmad-devel
+BuildRequires:	libsamplerate-devel >= 0.1.3
 BuildRequires:	ninja
 BuildRequires:	opus-devel
+BuildRequires:	pulseaudio-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
