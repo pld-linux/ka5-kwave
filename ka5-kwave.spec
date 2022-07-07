@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.2
-%define		kframever	5.56.0
-%define		qtver		5.9.0
+%define		kdeappsver	22.04.3
+%define		kframever	5.94.0
+%define		qtver		5.15.2
 %define		kaname		kwave
 Summary:	Sound editor
 Name:		ka5-%{kaname}
-Version:	22.04.2
+Version:	22.04.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	12ecf1d5e547327ed2879145b1cd7894
+# Source0-md5:	2466a865a508046c9ff3bb80e3c7567d
 URL:		http://www.kde.org/
 BuildRequires:	ImageMagick
 BuildRequires:	ImageMagick-coder-svg
