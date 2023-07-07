@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.04.2
+%define		kdeappsver	23.04.3
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kwave
 Summary:	Sound editor
 Name:		ka5-%{kaname}
-Version:	23.04.2
+Version:	23.04.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9774ad90e2d05d151b64b2964fd80042
+# Source0-md5:	b2849df14817315bc02a32cd27d34c91
 URL:		http://www.kde.org/
 BuildRequires:	ImageMagick
 BuildRequires:	ImageMagick-coder-svg
@@ -55,6 +55,7 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	%{name}-data = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,6 +63,18 @@ Kwave is a sound editor built on the KDE Frameworks 5.
 
 %description -l pl.UTF-8
 Kwave to edytor dźwięku zbudowany na bazie KDE Frameworks 5.
+
+%package data
+Summary:	Data files for %{kaname}
+Summary(pl.UTF-8):	Dane dla %{kaname}
+Group:		X11/Applications
+BuildArch:	noarch
+
+%description data
+Data files for %{kaname}.
+
+%description data -l pl.UTF-8
+Dane dla %{kaname}.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -94,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{kaname}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kwave
 %ghost %{_libdir}/libkwave.so.23
@@ -132,6 +145,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_stringenter.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_volume.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kwave/kwaveplugin_zero.so
+
+%files data -f %{kaname}.lang
+%defattr(644,root,root,755)
 %{_desktopdir}/org.kde.kwave.desktop
 %{_iconsdir}/hicolor/scalable/actions/kwave_player_end.svgz
 %{_iconsdir}/hicolor/scalable/actions/kwave_player_fwd.svgz
